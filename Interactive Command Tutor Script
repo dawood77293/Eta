@@ -1,0 +1,186 @@
+#!/bin/bash
+
+
+
+score=0
+
+# Each item: "Question#Exact answer"
+qa=(
+"Show your username#whoami"
+"Show your current directory (full path)#pwd"
+"Change to the /etc directory#cd /etc"
+"Change to your home directory#cd ~"
+"Change to the parent directory#cd .."
+"List files in the current directory#ls"
+"List files in /etc directory#ls /etc"
+"List files in long format#ls -l"
+"List hidden files#ls -a"
+"List all files including hidden in long format#ls -la"
+"Clear the terminal screen#clear"
+"Show the manual page for the ls command#man ls"
+"Show help for the aircrack-ng command#aircrack-ng --help"
+"Search the filesystem database for files named passwd#locate passwd"
+"Find where the ls command binary and man page are located#whereis ls"
+"Print the word Hello to the screen#echo Hello"
+"Show the PATH environment variable#echo \$PATH"
+"Find a file named apache2 starting from root#find / -type f -name apache2"
+"Find .txt files larger than 5 MB in /home/kali#find /home/kali -name \"*.txt\" -size +5M"
+"Create a file called notes.txt using cat with redirection#cat > notes.txt"
+"Display the contents of notes.txt#cat notes.txt"
+"Create an empty file called empty.txt#touch empty.txt"
+"Create a directory called newdir#mkdir newdir"
+"Create nested directories a/b/c#mkdir -p a/b/c"
+"Copy file1 to file2#cp file1 file2"
+"Copy file1 to the /tmp directory#cp file1 /tmp/"
+"Move file1 to file2 (rename)#mv file1 file2"
+"Run ls /root as root using sudo#sudo ls /root"
+"Run whoami as root using sudo -u#sudo -u root whoami"
+"Copy every .log file found into /backup using find and exec#find / -name \"*.log\" -exec cp {} /backup \\;"
+"Show file contents with line numbers using nl#nl filename"
+"Count lines, words and characters in filename#wc filename"
+"Count only the number of lines in filename#wc -l filename"
+"Show processes in the current shell#ps"
+"Show all running processes#ps -e"
+"Show all running processes with aux format#ps aux"
+"Show processes in full format#ps -f"
+"Show all processes for user kali#ps -u kali"
+"Show information about process with PID 1234#ps -p 1234"
+"Show top CPU and memory usage#top"
+
+"Add a new user named bob#sudo adduser bob"
+"Show all local users from the passwd file#cat /etc/passwd"
+"Delete user bob#sudo deluser bob"
+"Open the sudoers file safely with visudo#sudo visudo"
+"Switch to user bob#su bob"
+
+"Show command history#history"
+"Run command number 100 from history#!100"
+
+"Pipe output of ls into less#ls | less"
+"Pipe output of ps aux into grep ssh#ps aux | grep ssh"
+
+"Find PIDs of ssh processes using pgrep#pgrep ssh"
+
+"Sort the lines in file.txt alphabetically#sort file.txt"
+"Sort the lines in file.txt in reverse order#sort -r file.txt"
+"Sort the numbers in file.txt numerically#sort -n file.txt"
+"Sort file.txt and remove duplicate lines#sort -u file.txt"
+"Sort file.txt by the second column#sort -k 2 file.txt"
+
+"Reverse characters on each line of file.txt#rev file.txt"
+
+"Remove adjacent duplicate lines from file.txt#uniq file.txt"
+
+"Search for the word hello in myfile.txt#grep \"hello\" myfile.txt"
+"Match lines starting with Hello in file.txt#grep \"^Hello\" file.txt"
+"Match lines ending with world in file.txt#grep \"world\$\" file.txt"
+"Match ht, hot or hoot in file.txt with regex ho*t#grep \"ho*t\" file.txt"
+"Match lines containing cat or dog using extended regex#grep -E \"cat|dog\" file.txt"
+"Match patterns using grouping (ab) with extended regex#grep -E \"(ab)\" file.txt"
+"Match lines starting with a or p using character class#grep -E \"^[ap]\" file.txt"
+
+"Replace Hello with Hi in file.txt and print result#sed 's/Hello/Hi/g' file.txt"
+"Replace bob with ibrahim in oldfile.txt and save to newfile.txt#sed 's/bob/ibrahim/' oldfile.txt > newfile.txt"
+"Edit oldfile.txt in place and create a .bak backup with sed#sed -i.bak 's/bob/ibrahim/' oldfile.txt"
+
+"Print the first and third fields from each line of newfile.txt using awk#awk '{print \$1, \$3}' newfile.txt"
+"Use colon as field separator and print first field from /etc/passwd#awk -F: '{print \$1}' /etc/passwd"
+"Print only line number 3 from file.txt using awk#awk 'NR==3' file.txt"
+
+"Cut the first field from a colon-separated file.txt using cut#cut -d: -f1 file.txt"
+
+"List files with permissions using long format#ls -l"
+"Change permissions of filename to 755#chmod 755 filename"
+"Change permissions of filename to 644#chmod 644 filename"
+
+"Open file.txt in nano editor#nano file.txt"
+"Open file.txt in vi editor#vi file.txt"
+"In vi, enter insert mode by pressing i#i"
+"In vi, save and quit with colon w q#:wq"
+
+"Schedule a one-time job at 10:00 using at#at 10:00"
+"Edit the current user's crontab#crontab -e"
+"Schedule /root/myscanningscript to run at 2:30 AM Monday to Friday in crontab#30 2 * * 1-5 /root/myscanningscript"
+"Sleep for 5 seconds#sleep 5"
+"Sleep for 2 minutes#sleep 2m"
+
+"Install the gedit package with apt-get#sudo apt-get install gedit"
+"Remove the gedit package with apt-get#sudo apt-get remove gedit"
+"Purge the gedit package and its configuration#sudo apt-get purge gedit"
+"Update package lists from repositories#sudo apt-get update"
+"Upgrade installed packages#sudo apt-get upgrade"
+"Open the sources.list file in nano#sudo nano /etc/apt/sources.list"
+"Clone a GitHub repository using git clone#git clone URL.git"
+"Install a .deb package called tool.deb using dpkg#sudo dpkg -i tool.deb"
+"Fix broken dependencies after dpkg install#sudo apt --fix-broken install"
+
+"Show IP address configuration#ifconfig"
+"Show routing information#ip route"
+"Test connectivity to google.com#ping google.com"
+"Test DNS resolution for 8.8.8.8#nslookup 8.8.8.8"
+
+"Reboot the machine#sudo reboot"
+"Shut down the machine now#sudo poweroff"
+"Shut down the machine after 5 minutes#sudo shutdown +5"
+"Sleep 5 seconds then power off with sudo#sleep 5 && sudo poweroff"
+
+"Run a command in the background using ampersand#command &"
+
+"List all disks and partitions#sudo fdisk -l"
+"Create the mount point directory /mnt/usb#sudo mkdir /mnt/usb"
+"Mount /dev/sdb1 at /mnt/usb#sudo mount /dev/sdb1 /mnt/usb"
+"Show files on the mounted USB#ls /mnt/usb"
+"Unmount /dev/sdb1#sudo umount /dev/sdb1"
+
+"Start the PostgreSQL service#sudo systemctl start postgresql"
+"Stop the PostgreSQL service#sudo systemctl stop postgresql"
+"Restart the PostgreSQL service#sudo systemctl restart postgresql"
+"Enable PostgreSQL to start on boot#sudo systemctl enable postgresql"
+"Check PostgreSQL service status#systemctl status postgresql"
+
+"Start the apache2 web server#sudo systemctl start apache2"
+"Enable apache2 to start on boot#sudo systemctl enable apache2"
+
+"Install the ufw firewall package#sudo apt install ufw -y"
+"Enable ufw firewall#sudo ufw enable"
+"Disable ufw firewall#sudo ufw disable"
+"Allow SSH through ufw#sudo ufw allow ssh"
+"Allow HTTP on port 80/tcp through ufw#sudo ufw allow 80/tcp"
+"Deny Telnet on port 23/tcp through ufw#sudo ufw deny 23/tcp"
+"Reset ufw rules to default#sudo ufw reset"
+
+"Create a gzip compressed archive backup.tar.gz of your home directory#tar -czvf backup.tar.gz ~"
+"Extract the archive backup.tar.gz in the current directory#tar -xzvf backup.tar.gz"
+"Extract the archive backup.tar.gz into /tmp directory#tar -xzvf backup.tar.gz -C /tmp"
+)
+
+total=${#qa[@]}
+
+echo "=========================================="
+echo "   Linux Commands Tutor (Q|A, Exact Match)"
+echo "=========================================="
+echo ""
+
+qnum=1
+
+for item in "${qa[@]}"; do
+    # Split into question and answer (separator: #)
+    question="${item%%#*}"
+    answer="${item#*#}"
+
+    echo "Q$qnum: $question"
+    read -p "> " user
+
+    if [[ "$user" == "$answer" ]]; then
+        echo "✔ Correct!"
+        ((score++))
+    else
+        echo "✘ Wrong — exact answer: $answer"
+    fi
+
+    echo "--------------------------------------"
+    ((qnum++))
+done
+
+echo "Quiz finished!"
+echo "Your score: $score / $total"
