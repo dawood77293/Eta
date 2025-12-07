@@ -51,4 +51,51 @@ The script asks questions one by one, takes the user's input, and checks for **e
 sudo apt-get update
 sudo apt-get upgrade -y
 
+## ✅ Project Steps (Student Version)
+
+1. We installed **Kali Linux using VMware Player** on our computers.  
+
+2. After logging into Kali, we opened the **Terminal** using:  
+CTRL + ALT + T  
+
+3. We created a new Bash script file using this command:  
+```bash
+touch linux_quiz_full.sh
+We opened the file using the mousepad editor:
+
+bash
+Copy code
+mousepad linux_quiz_full.sh
+We copied and pasted our full Bash quiz script code into the file.
+
+We saved the file and closed the editor.
+
+We gave the script permission to run using:
+
+bash
+Copy code
+chmod +x linux_quiz_full.sh
+We ran the script using:
+
+bash
+Copy code
+./linux_quiz_full.sh
+The program started showing Linux command questions.
+
+We typed the exact command answers in the terminal.
+
+The program checked each answer and showed whether it was correct or wrong.
+
+At the end, the program showed the final score.
+
+We took screenshots of the program output.
+
+We uploaded the following to GitHub:
+
+The Bash script
+
+The screenshots
+
+The README file
+
   
