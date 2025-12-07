@@ -88,7 +88,7 @@ chmod +x Project.sh
 <img width="612" height="521" alt="Screenshot 2025-12-06 101502" src="https://github.com/user-attachments/assets/a297c7d4-5cc4-4632-aa1f-4b416a518634" />
 
 10. The program checked each answer and showed whether it was correct or wrong.
-    <img width="605" height="482" alt="Screenshot 2025-12-06 101539" src="https://github.com/user-attachments/assets/edc0e3c4-7067-42d5-bf77-db4c75774cdf" />
+<img width="605" height="482" alt="Screenshot 2025-12-06 101539" src="https://github.com/user-attachments/assets/edc0e3c4-7067-42d5-bf77-db4c75774cdf" />
 
 
 11. At the end, the program showed the final score.
