@@ -90,6 +90,9 @@ chmod +x Project.sh
 10. The program checked each answer and showed whether it was correct or wrong.
 <img width="605" height="482" alt="Screenshot 2025-12-06 101539" src="https://github.com/user-attachments/assets/edc0e3c4-7067-42d5-bf77-db4c75774cdf" />
 
+11. At the end, the program showed the final score.
+<img width="177" height="53" alt="Screenshot 2025-12-06 101614" src="https://github.com/user-attachments/assets/3153109f-a6d1-4db9-b5fc-b0e7aed274e7" />
+
 ## 👥 Group Members (Eta Team)
 
 | Name | Student ID |
@@ -100,10 +103,5 @@ chmod +x Project.sh
 | Mohammed Almuhanna | 202100664 |
 | Abdullah Almutairi | 202101086 |
 | Khalid Alotaibi | 202001090 |
-
-11. At the end, the program showed the final score.
-<img width="177" height="53" alt="Screenshot 2025-12-06 101614" src="https://github.com/user-attachments/assets/3153109f-a6d1-4db9-b5fc-b0e7aed274e7" />
-
-
 
   
