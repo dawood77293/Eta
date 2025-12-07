@@ -19,7 +19,7 @@ The script asks questions one by one, takes the user's input, and checks for **e
 
 - **Bash Shell (Linux Terminal)**
 
-## 🖥 Setting Up Kali Linux Using VMware Player (Student Version)
+## 🖥 Setting Up Kali Linux Using VMware Player 
 
 1. First, download **VMware Player** (latest version) from the internet.  
    If you are using **Windows or Linux**, use **VMware Player**.  
